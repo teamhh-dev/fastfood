@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -23,3 +24,12 @@ Route::get("/categories",[CategoryController::class,'index']);
 Route::post("/categories/create",[CategoryController::class,'store']);
 Route::delete("/categories/delete",[CategoryController::class,'destroy']);
 Route::put("/categories/update",[CategoryController::class,'update']);
+
+
+Route::prefix('/product')->group(function (){
+
+    Route::get("/all",[ProductController::class,'index']);
+    Route::post("/create",[ProductController::class,'store']);
+    Route::delete("/delete",[ProductController::class,'destroy']);
+    Route::put("/update",[ProductController::class,'update']);
+});

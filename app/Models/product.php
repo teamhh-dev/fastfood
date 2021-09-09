@@ -9,4 +9,8 @@ class product extends Model {
 use HasFactory; 
 
 protected $fillable = ['id', 'title', 'desc', 'image', 'category_id']; 
+protected $hidden = [
+    'created_at',
+    'updated_at',
+];
 }

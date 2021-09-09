@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\PriceController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SizeController;
 
@@ -45,4 +46,11 @@ Route::prefix('/size')->group(function () {
     Route::post("/create", [SizeController::class, 'store']);
     Route::delete("/delete", [SizeController::class, 'destroy']);
     Route::put("/update", [SizeController::class, 'update']);
+});
+Route::prefix('/price')->group(function () {
+
+    Route::get("/all", [PriceController::class, 'index']);
+    Route::post("/create", [PriceController::class, 'store']);
+    Route::delete("/delete", [PriceController::class, 'destroy']);
+    Route::put("/update", [PriceController::class, 'update']);
 });

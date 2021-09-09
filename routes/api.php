@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SizeController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -20,16 +22,27 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get("/categories",[CategoryController::class,'index']);
-Route::post("/categories/create",[CategoryController::class,'store']);
-Route::delete("/categories/delete",[CategoryController::class,'destroy']);
-Route::put("/categories/update",[CategoryController::class,'update']);
 
 
-Route::prefix('/product')->group(function (){
 
-    Route::get("/all",[ProductController::class,'index']);
-    Route::post("/create",[ProductController::class,'store']);
-    Route::delete("/delete",[ProductController::class,'destroy']);
-    Route::put("/update",[ProductController::class,'update']);
+Route::prefix('/category')->group(function () {
+
+    Route::get("/all", [CategoryController::class, 'index']);
+    Route::post("/create", [CategoryController::class, 'store']);
+    Route::delete("/delete", [CategoryController::class, 'destroy']);
+    Route::put("/update", [CategoryController::class, 'update']);
+});
+Route::prefix('/product')->group(function () {
+
+    Route::get("/all", [ProductController::class, 'index']);
+    Route::post("/create", [ProductController::class, 'store']);
+    Route::delete("/delete", [ProductController::class, 'destroy']);
+    Route::put("/update", [ProductController::class, 'update']);
+});
+Route::prefix('/size')->group(function () {
+
+    Route::get("/all", [SizeController::class, 'index']);
+    Route::post("/create", [SizeController::class, 'store']);
+    Route::delete("/delete", [SizeController::class, 'destroy']);
+    Route::put("/update", [SizeController::class, 'update']);
 });

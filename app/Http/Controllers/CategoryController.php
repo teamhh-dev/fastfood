@@ -77,4 +77,23 @@ class CategoryController extends Controller
         $toDelete->delete();
         return $toDelete->toJson();
     }
+
+    public function allData()
+    {
+        $categories=category::all();
+        foreach ($categories as $category) {
+            # code...
+            $category=$category->products;
+            foreach ($category as $product) {
+                # code...
+                $product=$product->sizes;
+
+                foreach ($product as $size ) {
+                    $size=$size->price;
+                }
+            }
+        }
+        
+        return $categories->toJson();
+    }
 }

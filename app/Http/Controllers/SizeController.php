@@ -25,11 +25,10 @@ class SizeController extends Controller
      */
     public function store(Request $request)
     {
-        $newSize=new size(['title' => $request->get('title'), 'measure' => $request->get('measure'), 'unit' => $request->get('unit'), 'product_id' => $request->get('product_id')]);
+        $newSize = new size(['title' => $request->get('title'), 'measure' => $request->get('measure'), 'unit' => $request->get('unit'), 'product_id' => $request->get('product_id')]);
         $newSize->save();
 
         return $newSize->toJson();
-        
     }
 
     /**
@@ -52,23 +51,19 @@ class SizeController extends Controller
      */
     public function update(Request $request)
     {
-        $updateSize=size::find( $request->get('id'));
-        if($updateSize)
-        {
+        $updateSize = size::find($request->get('id'));
+        if ($updateSize) {
 
-            $newSize=new size(['id' => $updateSize->id ,'title' => $request->get('title'), 'measure' => $request->get('measure'), 'unit' => $request->get('unit'), 'product_id' => $request->get('product_id')]);
-            $updateSize->title=(($request->get('title'))?$request->get('title'):$updateSize->title);
-            $updateSize->measure=(($request->get('measure'))?$request->get('measure'):$updateSize->measure);
-            $updateSize->unit=(($request->get('unit'))?$request->get('unit'):$updateSize->unit);
-            $updateSize->product_id=(($request->get('product_id'))?$request->get('product_id'):$updateSize->product_id);
+            // $newSize = new size(['id' => $updateSize->id, 'title' => $request->get('title'), 'measure' => $request->get('measure'), 'unit' => $request->get('unit'), 'product_id' => $request->get('product_id')]);
+            $updateSize->title = (($request->get('title')) ? $request->get('title') : $updateSize->title);
+            $updateSize->measure = (($request->get('measure')) ? $request->get('measure') : $updateSize->measure);
+            $updateSize->unit = (($request->get('unit')) ? $request->get('unit') : $updateSize->unit);
+            $updateSize->product_id = (($request->get('product_id')) ? $request->get('product_id') : $updateSize->product_id);
 
             $updateSize->save();
             return $updateSize->toJson();
-        }
-        else
-        {
+        } else {
             return response()->json(['error' => "Not Found!"])->setStatusCode(404);
-
         }
     }
 

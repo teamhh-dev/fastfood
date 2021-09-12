@@ -1,8 +1,5 @@
 <template>
-  <div class="container">
-    <!-- <h1>ok</h1> -->
-    <ul id="example">
-      <!-- <li v-for="category in allAppData" :key="category.id">
+   <li v-for="category in allAppData" :key="category.id">
         <fieldset class="heading">
           <legend>{{ category.title }}</legend>
         </fieldset>
@@ -25,43 +22,33 @@
             </ul>
           </li>
         </ul>
-      </li> -->
-    
-    <card v-bind:allAppData="allAppData"></card>
-    </ul>
-  </div>
+      </li>
 </template>
 
 <script>
-import card from "./Card.vue";
-import axios from "axios";
-import { mapGetters, mapActions } from "vuex";
 export default {
-  // data:
-  // {
-  //   categories:[]
-  // },
-  computed: {
-    ...mapGetters(["allAppData"]),
-  },
-  methods: {
-    ...mapActions(["getAllData"]),
-  },
-  mounted() {
-    this.getAllData();
-    // console.log(this.getAllData(), "ok");
-  },
-  // mounted() {
-  //   // this.categories=this.allAppData;
-  // },
-  components: { card },
-};
+    name:"card",
+    props:['allAppData']
+}
 </script>
 
 <style scoped>
-.container {
-  width: 100%;
-  margin: auto;
-  padding: 1rem;
+.heading legend,
+h1 {
+  font-family: "Tangerine", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 5rem;
+  text-align: center;
+  margin-top: 1rem;
+  padding: 0 1rem;
 }
+.heading {
+  border: none;
+  border-top: 2px solid #ddd;
+  text-align: center;
+}
+ul li {
+  list-style: none;
+}
+
 </style>

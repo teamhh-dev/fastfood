@@ -28,6 +28,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::prefix('/category')->group(function () {
 
+    Route::get("/allProducts", [CategoryController::class, 'allData']);
     Route::get("/all", [CategoryController::class, 'index']);
     Route::post("/create", [CategoryController::class, 'store']);
     Route::delete("/delete", [CategoryController::class, 'destroy']);

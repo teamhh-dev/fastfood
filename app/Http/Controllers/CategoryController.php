@@ -57,9 +57,7 @@ class CategoryController extends Controller
             $toUpdate->title = $request->get('title');
             $toUpdate->save();
             return $toUpdate->toJson();
-        }
-        else
-        {
+        } else {
             return response()->json(['error' => "Not Found!"])->setStatusCode(404);
         }
     }
@@ -80,20 +78,25 @@ class CategoryController extends Controller
 
     public function allData()
     {
-        $categories=category::all();
-        foreach ($categories as $category) {
-            # code...
-            $category=$category->products;
-            foreach ($category as $product) {
-                # code...
-                $product=$product->sizes;
+        $categories = category::with(['products' => function ($query) {
+            $query->with(['sizes' => function ($query) {
+                $query->orderBy('measure');
+                $query->with('price');
+            }]);
+        }])->get();
+        // foreach ($categories as $category) {
+        //     # code...
+        //     $category=$category->products;
+        //     foreach ($category as $product) {
+        //         # code...
+        //         $product=$product->sizes;
 
-                foreach ($product as $size ) {
-                    $size=$size->price;
-                }
-            }
-        }
-        
+        //         foreach ($product as $size ) {
+        //             $size=$size->price;
+        //         }
+        //     }
+        // }
+
         return $categories->toJson();
     }
 }

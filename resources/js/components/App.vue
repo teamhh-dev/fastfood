@@ -1,39 +1,17 @@
 <template>
+
+  <navbar></navbar>
+  <div class="light-box"></div>
   <div class="container">
     <!-- <h1>ok</h1> -->
-    <ul id="example">
-      <!-- <li v-for="category in allAppData" :key="category.id">
-        <fieldset class="heading">
-          <legend>{{ category.title }}</legend>
-        </fieldset>
-        <ul>
-          <li v-for="product in category.products" :key="product.id">
-            <ul>
-              <li>{{ product.title }}</li>
-              <li>{{ product.desc }}</li>
-              <li>{{ product.image }}</li>
-
-              <ul>
-                <li v-for="size in product.sizes" :key="size.id">
-                  <ul>
-                    <li>{{ size.title }}</li>
-                    <li>{{ size.measure }}</li>
-                    <li>{{ size.unit }}</li>
-                  </ul>
-                </li>
-              </ul>
-            </ul>
-          </li>
-        </ul>
-      </li> -->
     
-    <card v-bind:allAppData="allAppData"></card>
-    </ul>
+    <productCards v-bind:allAppData="allAppData"></productCards>
   </div>
 </template>
 
 <script>
-import card from "./Card.vue";
+import navbar from "./Navbar.vue";
+import productCards from "./ProductCards.vue";
 import axios from "axios";
 import { mapGetters, mapActions } from "vuex";
 export default {
@@ -54,14 +32,8 @@ export default {
   // mounted() {
   //   // this.categories=this.allAppData;
   // },
-  components: { card },
+  components: {navbar,productCards},
 };
 </script>
 
-<style scoped>
-.container {
-  width: 100%;
-  margin: auto;
-  padding: 1rem;
-}
-</style>
+

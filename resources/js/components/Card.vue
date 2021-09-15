@@ -1,54 +1,67 @@
 <template>
-   <li v-for="category in allAppData" :key="category.id">
-        <fieldset class="heading">
-          <legend>{{ category.title }}</legend>
-        </fieldset>
-        <ul>
-          <li v-for="product in category.products" :key="product.id">
-            <ul>
-              <li>{{ product.title }}</li>
-              <li>{{ product.desc }}</li>
-              <li>{{ product.image }}</li>
-
-              <ul>
-                <li v-for="size in product.sizes" :key="size.id">
-                  <ul>
-                    <li>{{ size.title }}</li>
-                    <li>{{ size.measure }}</li>
-                    <li>{{ size.unit }}</li>
-                  </ul>
-                </li>
-              </ul>
-            </ul>
-          </li>
-        </ul>
-      </li>
+    <div class="card" :id="product.id">
+        <div class="card-left">
+            <img src="\images\1626695679-Ny-FuXion.png" class="card-img" />
+        </div>
+        <div class="card-right">
+            <p class="product-price">
+                {{
+                    product.sizes.length !== 0
+                        ? "Starting at Rs." + product.sizes[0].price.price
+                        : "No Product"
+                }}
+            </p>
+            <p class="card-title">{{ product.title }}</p>
+            <p class="card-desc">{{ product.desc }}</p>
+            <form method="post">
+                <div class="card-sizes">
+                    <label
+                        for="sizes"
+                        class="card-title"
+                        style="font-size: 1.5rem; color: yellowgreen"
+                        >Pick Size</label
+                    >
+                    <select id="sizes">
+                        <option default>-----</option>
+                        <option
+                            :value="size.id"
+                            :id="size.id"
+                            v-for="size in product.sizes"
+                            :key="size.id"
+                        >
+                            {{
+                                size.title[0] +
+                                " " +
+                                size.measure +
+                                " " +
+                                size.unit +
+                                " at Rs." +
+                                size.price.price
+                            }}
+                        </option>
+                    </select>
+                    
+                </div>
+                <button class="card-button" @click="log" type="submit">
+                    Add To Cart
+                </button>
+            </form>
+        </div>
+    </div>
 </template>
 
 <script>
 export default {
-    name:"card",
-    props:['allAppData']
-}
+    name: "card",
+    props: {
+        product: Object,
+        // size
+    },
+    methods: {
+        log(event) {
+            event.preventDefault();
+            console.log("ok", event);
+        },
+    },
+};
 </script>
-
-<style scoped>
-.heading legend,
-h1 {
-  font-family: "Tangerine", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  font-size: 5rem;
-  text-align: center;
-  margin-top: 1rem;
-  padding: 0 1rem;
-}
-.heading {
-  border: none;
-  border-top: 2px solid #ddd;
-  text-align: center;
-}
-ul li {
-  list-style: none;
-}
-
-</style>

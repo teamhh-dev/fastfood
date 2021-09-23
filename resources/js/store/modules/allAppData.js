@@ -1,7 +1,11 @@
 import axios from "axios";
+import { event } from "jquery";
 
 const state = {
-    categoriesWithData: []
+    categoriesWithData: [],
+    // categoryTitle: ''
+
+
 };
 const actions = {
     async getAllData({ commit }) {
@@ -17,13 +21,39 @@ const actions = {
         // this.state.categoriesWithData = response.data;
         //     }
         // });
+    },
+    addCategory(event) {
+
+        $.ajax({
+            type: "POST",
+            url: "/api/category/create",
+            data: { title: $("#title").val() },
+            success: function(response) {
+                console.log(response);
+                console.log(event);
+                $("#title").val("");
+                $(".notification").show().children('.msg').html('Added Succesfully!').parent().fadeOut(3000);
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.log(jqXHR, " ", textStatus, " ", errorThrown);
+            }
+        });
+
+    },
+    setTitle({ commit }, value) {
+        commit('setcategoryTitle', value)
+
     }
+
 };
 const getters = {
-    allAppData: (state) => state.categoriesWithData
+    allAppData: (state) => state.categoriesWithData,
+    categoryTitle: (state) => state.categoryTitle,
+
 };
 const mutations = {
-    setAllAppData: (state, appAppData) => (state.categoriesWithData = appAppData)
+    setAllAppData: (state, appAppData) => (state.categoriesWithData = appAppData),
+    setcategoryTitle: (state, categoryTitle) => (state.categoryTitle = categoryTitle)
 };
 
 export default {

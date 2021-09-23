@@ -15,4 +15,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('main');
+Route::get('/admin', function () {
+    return view('admin');
+})->name('admin');
+
+Route::get('/admin/{any}', function() {
+    return redirect(route('admin'));
+ })->where('any', '.*');
+ 
+Route::get('{any}', function() {
+    return redirect(route('main'));
+ })->where('any', '.*');

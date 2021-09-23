@@ -21,10 +21,10 @@
     </style>
     <body>
 
-        <div  id="app">
+        <div  id="app2">
             <app></app>
         </div>
         <script src="{{asset('js/jquery.js')}}"></script>
-        <script src="{{asset('js/app.js')}}"></script>
+        <script src="{{asset('js/admin.js')}}"></script>
     </body>
 </html>

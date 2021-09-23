@@ -16,6 +16,14 @@ html {
     font-size: 62.5%;
 }
 
+#app,
+#app2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
 section {
     position: relative;
     margin-bottom: 10rem;
@@ -105,7 +113,7 @@ section {
 }
 
 .nav-item:hover {
-    background-color: grey;
+    background-color: rgb(83, 0, 0);
 }
 
 .active {
@@ -220,7 +228,7 @@ body::-webkit-scrollbar {
     font-size: 2.1rem;
     font-weight: bold;
     font-family: $poppins-font;
-    color: blanchedalmond;
+    color: #fff;
     text-shadow: 0 2px 3px rgb(0 0 0 / 50%);
     width: 100%;
     height: fit-content;
@@ -237,7 +245,7 @@ body::-webkit-scrollbar {
 .card-desc {
     font-size: 1.4rem;
     /* width: 40%; */
-    color: rgb(144, 144, 144);
+    color: #ff900d;
     align-self: flex-start;
     text-shadow: 0 1px 3px rgb(0 0 0 / 30%);
     word-break: break-word;
@@ -310,6 +318,75 @@ form {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.container-add {
+    /* float: right; */
+    width: 75%;
+    height: fit-content;
+    min-height: 100vh;
+    border-radius: 1rem;
+    border: #ddd;
+    padding: 1rem;
+    background-color: moccasin;
+}
+
+.form-field {
+    height: 95vh;
+    width: 100%;
+    text-align: center;
+    border-radius: 1rem;
+    border: 0.4rem solid;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .input-container {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 45% 55%;
+        height: 10rem;
+        grid-template-rows: 50% 50%;
+        align-items: center;
+        .error-msg {
+            justify-self: start;
+            align-self: start;
+            color: white;
+            background-color: red;
+            padding: 0.3rem 5rem;
+            border-radius: 0.6rem;
+            grid-column-start: 2;
+            display: none;
+        }
+    }
+    .title-label {
+        font-family: $poppins-font;
+        font-size: $font-size-base;
+        justify-self: end;
+        margin-right: $marginTop;
+    }
+    #title {
+        font-family: $poppins-font;
+        font-size: $font-size-base;
+        width: 80%;
+        padding: 0.3rem;
+        border: none;
+        text-decoration: none;
+        &:focus,
+        &:focus-visible {
+            border: none;
+            text-decoration: none;
+            box-shadow: 0px 0px 4px maroon;
+            background-color: white;
+            outline: none;
+        }
+    }
+    >legend {
+        font-size: $font-size-base;
+        font-family: $heading-font;
+        padding: 0rem 1rem;
+    }
 }
 
 @media screen and (min-width:768px) {

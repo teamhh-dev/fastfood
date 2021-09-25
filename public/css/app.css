@@ -322,6 +322,18 @@ form {
   align-items: center;
 }
 
+.notification {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  font-size: 2rem;
+  transform: translate(30%, 9.8px);
+  letter-spacing: 0.09rem;
+  background-color: lightgreen;
+  padding: 0.5rem;
+  border-radius: 0.7rem;
+}
+
 .container-add {
   /* float: right; */
   width: 75%;

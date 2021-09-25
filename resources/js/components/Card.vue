@@ -22,7 +22,7 @@
                         >Pick Size</label
                     >
                     <select id="sizes">
-                        <option default>-----</option>
+                        <option disabled value="">-----</option>
                         <option
                             :value="size.id"
                             :id="size.id"

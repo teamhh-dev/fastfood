@@ -42,10 +42,10 @@
                 <router-link :to="{ name: 'addCategory' }" class="sub-item-link"
                     >Add</router-link
                 >
-                <router-link :to="{ name: 'addCategory' }" class="sub-item-link"
+                <router-link :to="{ name: 'updateCategory' }" class="sub-item-link"
                     >Update</router-link
                 >
-                <router-link :to="{ name: 'addCategory' }" class="sub-item-link"
+                <router-link :to="{ name: 'deleteCategory' }" class="sub-item-link"
                     >Delete</router-link
                 >
                 <!-- <li class="sub-item-link">Update</li>

@@ -12,7 +12,9 @@
             id="title"
             name="title"
             placeholder="Enter Title.."
+            v-model="categoryTitle"
           />
+          <h1>{{categoryTitle}}</h1>
           <div class="error-msg"><h2>Invalid Data</h2></div>
         </div>
         <button class="card-button" style="width: 30%">Add</button>
@@ -30,8 +32,19 @@ export default {
   components: {
     dashboardNavbar,
   },
+  computed:{
+    // ...mapState(['categoryTitle']),
+    categoryTitle: {
+        get() {
+            return this.$store.getters.getCategoryTitle;
+        },
+        set(value) {
+            this.$store.commit('setCategoryTitle', value);
+        }
+    }
+  },
   methods: {
-    ...mapActions(["addCategory"]),
+    ...mapActions(["addCategory","setTitle"]),
   },
   // methods: {
   //   submit(event) {

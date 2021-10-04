@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import category from "./Category.vue";
+import category from "../Category/Category.vue";
 export default {
     name: "addCategory",
 

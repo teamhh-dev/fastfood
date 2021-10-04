@@ -189,7 +189,7 @@ body::-webkit-scrollbar {
 
 .cards-container::-webkit-scrollbar-thumb,
 .container::-webkit-scrollbar-thumb {
-  background-color: #5EAAA8;
+  background-color: maroon;
   border-radius: 1rem;
 }
 
@@ -369,6 +369,23 @@ form {
   align-items: center;
 }
 
+.form-field .input-container input {
+  padding: 0.5rem;
+}
+
+.form-field .input-container textarea {
+  width: 80%;
+  height: 11rem;
+  margin: 0px;
+  resize: none;
+  padding: 0.5rem;
+  font-weight: 700;
+}
+
+.form-field .input-container input[type=file i] {
+  width: 80%;
+}
+
 .form-field .input-container .error-msg {
   justify-self: start;
   align-self: start;
@@ -391,7 +408,7 @@ form {
   font-family: "Poppins", sans-serif;
   font-size: 2rem;
   width: 80%;
-  padding: 0.3rem;
+  padding: 0.5rem;
   border: none;
   text-decoration: none;
 }

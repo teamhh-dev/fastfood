@@ -49,7 +49,7 @@
 </template>
 
 <script>
-import dashboardNavbar from "./DasboardNavbar.vue";
+import dashboardNavbar from "../DasboardNavbar.vue";
 import { mapActions, mapGetters } from "vuex";
 export default {
   name: "category",

@@ -2,6 +2,7 @@
 import { createStore } from 'vuex';
 import allAppData from './modules/allAppData';
 import category from './modules/category';
+import product from "./modules/product";
 
 // Vue.use
 // Vue.use(Vuex);
@@ -11,7 +12,8 @@ import category from './modules/category';
 const store = createStore({
     modules: {
         allAppData,
-        category
+        category,
+        product
     }
 });
 

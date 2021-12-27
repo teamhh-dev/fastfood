@@ -4,7 +4,8 @@ mix.browserSync({
     proxy: 'http://127.0.0.1:8000'
 });
 
-
+mix.css('node_modules/bootstrap/dist/css/bootstrap.min.css', 'public/css');
+mix.js('node_modules/bootstrap/dist/js/bootstrap.bundle.min.js', 'public/js');
 mix.js('resources/js/app.js', 'public/js').vue();
 mix.js('resources/js/admin.js', 'public/js').vue();
 mix.sass('resources/sass/app.scss', 'public/css');

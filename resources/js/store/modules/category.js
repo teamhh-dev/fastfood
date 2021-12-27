@@ -1,7 +1,10 @@
 import axios from "axios";
 
 const state = {
+    categories: [],
     categoryTitle: '',
+    selectedCategory: ''
+
 
 };
 const actions = {
@@ -55,6 +58,7 @@ const actions = {
     deleteCategory({ commit, getters, dispatch }) {
         console.log("ok", $('select').first().find(':selected').attr('id'));
 
+
         $.ajax({
             type: "DELETE",
             url: "/api/category/delete",
@@ -92,11 +96,18 @@ const actions = {
 
 };
 const getters = {
+    getCategories: (state) => state.categories,
+
     getCategoryTitle: (state) => state.categoryTitle,
+    getSelectedCategory: (state) => state.selectedCategory,
+
 
 };
 const mutations = {
+    setCategories: (state, categories) => (state.categories = categories),
     setCategoryTitle: (state, categoryTitle) => (state.categoryTitle = categoryTitle),
+    setSelectedCategory: (state, selectedCategory) => (state.selectedCategory = selectedCategory),
+
 };
 
 export default {

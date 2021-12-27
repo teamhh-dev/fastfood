@@ -1,5 +1,5 @@
 <template>
-    <select name="category" id="category_id">
+    <select name="category" id="category_id" v-model="selectedCategory">
         <option
             v-for="category in categories"
             :key="category.id"
@@ -20,7 +20,16 @@ export default {
     },
     computed: {
         // ...mapGetters["allAppData"],
-
+        selectedCategory:
+        {
+            get()
+            {
+                return this.$store.getters.getSelectedCategory;
+            }
+            ,set(value) {
+                this.$store.commit("setSelectedCategory", value);
+            }
+        },
         categories: {
             get() {
                 return this.$store.getters.getCategories;

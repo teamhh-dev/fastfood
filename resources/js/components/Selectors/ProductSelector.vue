@@ -1,5 +1,5 @@
 <template>
-    <select name="product" id="product_id">
+    <select name="product" id="product_id" v-model="selectedProduct">
         <option
             v-for="product in Products"
             :key="product.id"
@@ -20,6 +20,16 @@ export default {
     },
     computed: {
         // ...mapGetters["allAppData"],
+        selectedProduct:
+        {
+            get()
+            {
+                return this.$store.getters.getSelectedProduct;
+            }
+            ,set(value) {
+                this.$store.commit("setSelectedProduct", value);
+            }
+        },
 
         Products: {
             get() {

@@ -1,6 +1,6 @@
 const state = {
-    categories: [],
-    products: []
+    products: [],
+    selectedProduct: '',
 
 };
 const actions = {
@@ -40,9 +40,15 @@ const actions = {
             }
         });
     },
+    updateProduct({ commit, getters, dispatch }) {
+        dispatch('getAllData');
+        console.log(getters.allAppData);
+        let products = getters.allAppData.filter((value) => { value.title == getters.getSelectedCategory });
+        console.log(products);
+    },
     checkAndExecuteForProduct({ commit, dispatch, getters }) {
         if ($('.card-button').html() === 'Update') {
-            dispatch('addProduct');
+            dispatch('updateProduct');
         } else if ($('.card-button').html() === 'Add') {
             dispatch('addProduct');
 
@@ -52,12 +58,12 @@ const actions = {
     }
 };
 const getters = {
-    getCategories: (state) => state.categories,
     getProducts: (state) => state.products,
+    getSelectedProduct: (state) => state.selectedProduct,
 };
 const mutations = {
-    setCategories: (state, categories) => (state.categories = categories),
     setProducts: (state, products) => (state.products = products),
+    setSelectedProduct: (state, selectedProduct) => (state.selectedProduct = selectedProduct),
 };
 
 export default {

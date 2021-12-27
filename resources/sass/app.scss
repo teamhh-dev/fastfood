@@ -141,7 +141,7 @@ section {
     border: none;
     font-family: "Tangerine";
     border-top: 2px solid #ddd;
-    padding: 0 33%;
+    padding: 0 8rem;
     legend {
         padding: 0 1rem;
     }
@@ -412,6 +412,21 @@ form {
         font-size: $font-size-base;
         font-family: $heading-font;
         padding: 0rem 1rem;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .container {
+        margin-top: 0;
+    }
+    .navbar {
+        top: unset;
+        bottom: 0;
+        height: 10vh;
+    }
+    section {
+        margin-top: 0;
+        margin-bottom: 0;
     }
 }
 

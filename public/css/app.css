@@ -136,7 +136,7 @@ section {
   border: none;
   font-family: "Tangerine";
   border-top: 2px solid #ddd;
-  padding: 0 33%;
+  padding: 0 8rem;
 }
 
 .heading legend {
@@ -426,6 +426,23 @@ form {
   font-size: 2rem;
   font-family: "Tangerine", serif;
   padding: 0rem 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    margin-top: 0;
+  }
+
+  .navbar {
+    top: unset;
+    bottom: 0;
+    height: 10vh;
+  }
+
+  section {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
 }
 
 @media screen and (min-width: 768px) {

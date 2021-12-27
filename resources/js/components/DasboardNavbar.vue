@@ -80,7 +80,7 @@
         <img src="/images/icons8_category_30px.png" alt="" class="nav-icon" />
         <!-- <a href="#pizza" class="nav-link">Home</a> -->
         <router-link :to="{ name: 'Home' }" class="nav-link"
-          >Working</router-link
+          >Size</router-link
         >
         <button @click="toggle">
           <img

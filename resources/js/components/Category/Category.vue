@@ -10,7 +10,7 @@
     <form @submit.prevent="checkAndExecute">
       <fieldset class="form-field">
         <legend>
-          <h1>{{ PageType }}&nbsp;Category</h1>
+          <h1>{{ PageType }} Category</h1>
         </legend>
         <div class="input-container"  v-if="IsUpdate">
           <label for="title" class="title-label">Select Title: </label>

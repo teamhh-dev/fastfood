@@ -1,5 +1,5 @@
 <template>
-  <product PageType="Add" ButtonType="Add" ShowInput IsUpdate />
+  <product PageType="Add" ButtonType="Add" ShowInput />
 </template>
 
 <script>

@@ -20008,6 +20008,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   methods: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapActions)(["fetchCategories"])),
   computed: {
     // ...mapGetters["allAppData"],
+    selectedCategory: {
+      get: function get() {
+        return this.$store.getters.getSelectedCategory;
+      },
+      set: function set(value) {
+        this.$store.commit("setSelectedCategory", value);
+      }
+    },
     categories: {
       get: function get() {
         return this.$store.getters.getCategories;
@@ -20050,6 +20058,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   methods: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapActions)(["fetchProducts"])),
   computed: {
     // ...mapGetters["allAppData"],
+    selectedProduct: {
+      get: function get() {
+        return this.$store.getters.getSelectedProduct;
+      },
+      set: function set(value) {
+        this.$store.commit("setSelectedProduct", value);
+      }
+    },
     Products: {
       get: function get() {
         return this.$store.getters.getProducts;
@@ -20352,7 +20368,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     onSubmit: _cache[2] || (_cache[2] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
       return _ctx.checkAndExecute && _ctx.checkAndExecute.apply(_ctx, arguments);
     }, ["prevent"]))
-  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("fieldset", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("legend", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.PageType) + " Category", 1
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("fieldset", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("legend", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.PageType) + " Category", 1
   /* TEXT */
   )]), $props.IsUpdate ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_4, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($options.categories, function (category) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", {
@@ -20562,7 +20578,7 @@ var _hoisted_28 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_29 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Working");
+var _hoisted_29 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Size");
 
 var _hoisted_30 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
   src: "/images/icons8_expand_arrow_24px_1.png",
@@ -20968,8 +20984,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_product, {
     PageType: "Add",
     ButtonType: "Add",
-    ShowInput: "",
-    IsUpdate: ""
+    ShowInput: ""
   });
 }
 
@@ -21143,7 +21158,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }, ["prevent"]))
   }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("fieldset", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("legend", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.PageType) + " Product", 1
   /* TEXT */
-  )]), $props.IsUpdate ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_4, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <select name=\"category\" id=\"category_id\">\r\n            <option v-for=\"category in categories\" :key=\"category.id\" :id=\"category.id\">\r\n              {{ category.title }}\r\n            </option>\r\n          </select> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_categorySelector)])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.IsUpdate ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_6, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <select name=\"category\" id=\"category_id\">\r\n            <option v-for=\"category in categories\" :key=\"category.id\" :id=\"category.id\">\r\n              {{ category.title }}\r\n            </option>\r\n          </select> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_productSelector)])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.ShowInput ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_8, _hoisted_12)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.ShowInput ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_13, _hoisted_17)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.ShowInput ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_18, _hoisted_22)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", _hoisted_23, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.ButtonType), 1
+  )]), $props.ShowInput ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_4, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <select name=\"category\" id=\"category_id\">\r\n            <option v-for=\"category in categories\" :key=\"category.id\" :id=\"category.id\">\r\n              {{ category.title }}\r\n            </option>\r\n          </select> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_categorySelector)])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.IsUpdate ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_6, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <select name=\"category\" id=\"category_id\">\r\n            <option v-for=\"category in categories\" :key=\"category.id\" :id=\"category.id\">\r\n              {{ category.title }}\r\n            </option>\r\n          </select> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_productSelector)])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.ShowInput ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_8, _hoisted_12)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.ShowInput ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_13, _hoisted_17)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.ShowInput ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_18, _hoisted_22)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", _hoisted_23, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.ButtonType), 1
   /* TEXT */
   )])], 32
   /* HYDRATE_EVENTS */
@@ -21193,22 +21208,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
-var _hoisted_1 = {
-  name: "category",
-  id: "category_id"
-};
-var _hoisted_2 = ["id"];
+var _hoisted_1 = ["id"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("select", _hoisted_1, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($options.categories, function (category) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)(((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("select", {
+    name: "category",
+    id: "category_id",
+    "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+      return $options.selectedCategory = $event;
+    })
+  }, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($options.categories, function (category) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", {
       key: category.id,
       id: category.id
     }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(category.title), 9
     /* TEXT, PROPS */
-    , _hoisted_2);
+    , _hoisted_1);
   }), 128
   /* KEYED_FRAGMENT */
-  ))]);
+  ))], 512
+  /* NEED_PATCH */
+  )), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $options.selectedCategory]]);
 }
 
 /***/ }),
@@ -21226,22 +21245,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
-var _hoisted_1 = {
-  name: "product",
-  id: "product_id"
-};
-var _hoisted_2 = ["id"];
+var _hoisted_1 = ["id"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("select", _hoisted_1, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($options.Products, function (product) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)(((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("select", {
+    name: "product",
+    id: "product_id",
+    "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+      return $options.selectedProduct = $event;
+    })
+  }, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($options.Products, function (product) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", {
       key: product.id,
       id: product.id
     }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(product.title), 9
     /* TEXT, PROPS */
-    , _hoisted_2);
+    , _hoisted_1);
   }), 128
   /* KEYED_FRAGMENT */
-  ))]);
+  ))], 512
+  /* NEED_PATCH */
+  )), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $options.selectedProduct]]);
 }
 
 /***/ }),
@@ -21443,7 +21466,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 
 var state = {
-  categoryTitle: ''
+  categories: [],
+  categoryTitle: '',
+  selectedCategory: ''
 };
 var actions = {
   addCategory: function addCategory(_ref) {
@@ -21544,13 +21569,25 @@ var actions = {
   }
 };
 var getters = {
+  getCategories: function getCategories(state) {
+    return state.categories;
+  },
   getCategoryTitle: function getCategoryTitle(state) {
     return state.categoryTitle;
+  },
+  getSelectedCategory: function getSelectedCategory(state) {
+    return state.selectedCategory;
   }
 };
 var mutations = {
+  setCategories: function setCategories(state, categories) {
+    return state.categories = categories;
+  },
   setCategoryTitle: function setCategoryTitle(state, categoryTitle) {
     return state.categoryTitle = categoryTitle;
+  },
+  setSelectedCategory: function setSelectedCategory(state, selectedCategory) {
+    return state.selectedCategory = selectedCategory;
   }
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -21574,8 +21611,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 var state = {
-  categories: [],
-  products: []
+  products: [],
+  selectedProduct: ''
 };
 var actions = {
   fetchCategories: function fetchCategories(_ref) {
@@ -21619,13 +21656,24 @@ var actions = {
       }
     });
   },
-  checkAndExecuteForProduct: function checkAndExecuteForProduct(_ref4) {
+  updateProduct: function updateProduct(_ref4) {
     var commit = _ref4.commit,
-        dispatch = _ref4.dispatch,
-        getters = _ref4.getters;
+        getters = _ref4.getters,
+        dispatch = _ref4.dispatch;
+    dispatch('getAllData');
+    console.log(getters.allAppData);
+    var products = getters.allAppData.filter(function (value) {
+      value.title == getters.getSelectedCategory;
+    });
+    console.log(products);
+  },
+  checkAndExecuteForProduct: function checkAndExecuteForProduct(_ref5) {
+    var commit = _ref5.commit,
+        dispatch = _ref5.dispatch,
+        getters = _ref5.getters;
 
     if ($('.card-button').html() === 'Update') {
-      dispatch('addProduct');
+      dispatch('updateProduct');
     } else if ($('.card-button').html() === 'Add') {
       dispatch('addProduct');
     } else if ($('.card-button').html() === 'Delete') {
@@ -21634,19 +21682,19 @@ var actions = {
   }
 };
 var getters = {
-  getCategories: function getCategories(state) {
-    return state.categories;
-  },
   getProducts: function getProducts(state) {
     return state.products;
+  },
+  getSelectedProduct: function getSelectedProduct(state) {
+    return state.selectedProduct;
   }
 };
 var mutations = {
-  setCategories: function setCategories(state, categories) {
-    return state.categories = categories;
-  },
   setProducts: function setProducts(state, products) {
     return state.products = products;
+  },
+  setSelectedProduct: function setSelectedProduct(state, selectedProduct) {
+    return state.selectedProduct = selectedProduct;
   }
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({

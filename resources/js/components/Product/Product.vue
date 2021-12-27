@@ -12,7 +12,7 @@
         <legend>
           <h1>{{ PageType }}&nbsp;Product</h1>
         </legend>
-        <div class="input-container" v-if="IsUpdate">
+        <div class="input-container" v-if="ShowInput">
           <label for="title" class="title-label">Select Category: </label>
 
           <!-- <select name="category" id="category_id">
